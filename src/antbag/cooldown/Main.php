@@ -8,10 +8,13 @@ use pocketmine\Server;
 use pocketmine\utils\Config;
 use pocketmine\event\player\PlayerItemConsumeEvent;
 use pocketmine\item\ItemTypeIds;
+use pocketmine\event\Listener;
 
 class Main extends PluginBase implements Listener{
 
     public static $instance = null;
+    public $cooldown;
+    public $ecooldown;
 
     public function onEnable(): void{
         self::$instance = $this;
