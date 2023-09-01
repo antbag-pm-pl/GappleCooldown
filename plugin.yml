@@ -1,5 +1,5 @@
 name: GappleCooldown
 author: antbag
-main: antbag\gapplecooldown\Main
+main: antbag\cooldown\Main
 version: 1.0.0
 api: [5.0.0]
