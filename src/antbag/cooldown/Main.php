@@ -60,7 +60,7 @@ class Main extends PluginBase implements Listener{
         if($item->getTypeId() === ItemTypeIds::GOLDEN_APPLE){
             if($this->hasCooldown($player)){
                 $player->sendMessage($this->formatMessage($this->getConfig()->get("has-cooldown-message"), $player));
-                $e->setCancelled();
+                $e->cancel();
             }else{
                 $this->addCooldown($player);
              }
@@ -68,7 +68,7 @@ class Main extends PluginBase implements Listener{
             if($item->getTypeId() == ItemTypeIds::ENCHANTED_GOLDEN_APPLE){
             if($this->hasEnchantedCooldown($player)){
                 $player->sendMessage($this->formatMessage($this->getConfig()->get("has-cooldown-message"), $player));
-                $e->setCancelled();
+                $e->cancel();
             }else{
                 $this->addEnchantedCooldown($player);
             }
