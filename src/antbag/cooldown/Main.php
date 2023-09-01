@@ -105,38 +105,38 @@ class Main extends PluginBase implements Listener{
     }
 
     public function removeCooldown(Player $player){
-        $this->cooldown->remove($player->getLowerCaseName());
+        $this->cooldown->remove($player->getName());
         $this->cooldown->save();
     }
 
     public function removeEnchantedCooldown(Player $player){
-        $this->ecooldown->remove($player->getLowerCaseName());
+        $this->ecooldown->remove($player->getName());
         $this->ecooldown->save();
     }
 
     public function getCooldownSeconds(Player $player){
-        return $this->cooldown->get($player->getLowerCaseName()) - microtime(true);
+        return $this->cooldown->get($player->getName()) - microtime(true);
     }
 
-    public function getCooldownTime($player){
+    public function getCooldownTime(Player $player){
         return $this->convertSeconds($this->getCooldownSeconds($player));
     }
 
-    public function getEnchantedCooldownSeconds($player){
-        return $this->ecooldown->get($player->getLowerCaseName()) - microtime(true);
+    public function getEnchantedCooldownSeconds(Player $player){
+        return $this->ecooldown->get($player->getName()) - microtime(true);
     }
 
-    public function getEnchantedCooldownTime($player){
+    public function getEnchantedCooldownTime(Player $player){
         return $this->convertSeconds($this->getEnchantedCooldownSeconds($player));
     }
 
-    public function addCooldown($player){
-        $this->cooldown->set($player->getLowerCaseName(), microtime(true) + $this->getConfig()->get("cooldown-seconds"));
+    public function addCooldown(Player $player){
+        $this->cooldown->set($player->getName(), microtime(true) + $this->getConfig()->get("cooldown-seconds"));
         $this->cooldown->save();
     }
 
-    public function addEnchantedCooldown($player){
-        $this->ecooldown->set($player->getLowerCaseName(), microtime(true) + $this->getConfig()->get("enchanted-cooldown-seconds"));
+    public function addEnchantedCooldown(Player $player){
+        $this->ecooldown->set($player->getName(), microtime(true) + $this->getConfig()->get("enchanted-cooldown-seconds"));
         $this->ecooldown->save();
     }
 }
